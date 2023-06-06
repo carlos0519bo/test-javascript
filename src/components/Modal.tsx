@@ -8,9 +8,7 @@ interface Props {
 
 export const Modal = ({ isOpen, handleCloseModal }: Props) => {
   const navigate = useNavigate();
-  const { emptyResponseArray, userAnswers } = useQuestionsStore();
-
-  console.log(userAnswers);
+  const { emptyResponseArray } = useQuestionsStore();
 
   const restartTest = () => {
     emptyResponseArray();
