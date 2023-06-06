@@ -1,14 +1,10 @@
+import { Quest } from "../interfaces/quest";
+
 interface Props {
   quest: Quest;
   handleOptionSelect: (option: Quest) => void;
   selectedOption?: Quest;
 }
-
-interface Quest {
-  textoRespuesta: string;
-  isCorrect: boolean;
-}
-
 export const Question = ({
   quest,
   handleOptionSelect,
