@@ -1,15 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FloatingButton from '../components/FloatingButton';
 import { Modal } from '../components/Modal';
 import { useQuestionsStore } from '../store/useQuestionsStore';
 import { questions } from '../utils/questions';
 import FadeIn from 'react-fade-in';
+import { useNavigate } from 'react-router-dom';
 
 export const ResultPage = () => {
   const [showModal, setShowModal] = useState(false);
   const { userAnswers, punctuation } = useQuestionsStore();
   const percentageCorrect = (punctuation / questions.length) * 100;
-
+  const navigate = useNavigate();
   const handleOpenModal = () => {
     setShowModal(true);
   };
@@ -45,6 +46,12 @@ export const ResultPage = () => {
     if (!finded) return 'bg-white';
     return finded?.isCorrect ? 'bg-emerald-100' : 'bg-red-200';
   };
+
+  useEffect(() => {
+    if (punctuation < 1 ) {
+      return navigate('/');
+    }
+  }, [punctuation]);
 
   return (
     <div className="flex flex-col bg-gradient-to-tr from-amber-300 to-yellow-600 px-5 md:px-60">

@@ -7,11 +7,10 @@ const windowWidth = window.innerWidth;
 const windowHeight = window.innerHeight;
 
 export const FinalInformation = () => {
-  const { name, endTest } = useQuestionsStore();
+  const { name } = useQuestionsStore();
   const navigate = useNavigate();
 
   const toRestulsPage = () => {
-    endTest();
     navigate('/results');
   };
 

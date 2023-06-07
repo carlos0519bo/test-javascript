@@ -8,15 +8,17 @@ interface Props {
 
 export const Modal = ({ isOpen, handleCloseModal }: Props) => {
   const navigate = useNavigate();
-  const { emptyResponseArray } = useQuestionsStore();
+  const { emptyResponseArray, counterResetting } = useQuestionsStore();
 
   const restartTest = () => {
     emptyResponseArray();
+    counterResetting();
     navigate('/test');
   };
 
   const goToHome = () => {
     emptyResponseArray();
+    counterResetting();
     navigate('/');
   };
 
@@ -89,7 +91,7 @@ export const Modal = ({ isOpen, handleCloseModal }: Props) => {
           </div>
           <div className="w-full flex justify-center">
             <a
-              href="https:www.linkedin.com/in/carlos-lopezc93"
+              href="https://www.linkedin.com/in/carlos-lopezc93"
               className="font-medium text-blue-600 dark:text-blue-500 hover:underline mb-2"
               target="_blank"
             >
